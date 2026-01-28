@@ -23,7 +23,7 @@ export default function Home() {
 
   useEffect(() => {
     if (session) {
-      router.push("/authority");
+      router.push("/authority/home");
     }
   }, [session, router]);
 

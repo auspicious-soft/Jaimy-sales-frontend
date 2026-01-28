@@ -174,7 +174,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
+input[type="checkbox"] {
+  accent-color: #ec4899; /* normal checked color */
+}
 
+input[type="checkbox"]:disabled {
+  opacity: 1; /* stop fading */
+}
+
+input[type="checkbox"]:disabled:checked {
+  accent-color: #ec4899; /* force color when disabled */
+}
 /* Remove native styles in Firefox */
 input[type="date"] {
   appearance: none;

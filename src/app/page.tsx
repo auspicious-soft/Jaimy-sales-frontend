@@ -23,7 +23,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (session) {
-      router.push("/authority");
+      router.push("/location");
     }
   }, [session, router]);
 
@@ -53,7 +53,7 @@ export default function LoginPage() {
         const response = await loginAction({ email, password });
         if (response?.success) {
           toast.success("Logged in successfully");
-          router.push("/authority");
+          router.push("/location");
         } else if (response?.message === "Invalid password") {
           toast.error(response?.message);
         } else {

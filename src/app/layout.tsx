@@ -1,3 +1,4 @@
+// "use client";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "sonner";
@@ -44,17 +45,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
-
+  // if(!session?.user) return redirect('/');
   return (
     <html lang="en">
       <body className={`font-kodchasan overflow-auto overflo-custom`}>
         <SessionProvider session={session}>
-           <CountryProvider>
-          <DataProvider>
-            <Toaster position="top-center"  />
-            {/* <Toaster position="top-right" /> */}
-            <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-          </DataProvider>
+          <CountryProvider>
+            <DataProvider>
+              <Toaster position="top-center" />
+              {/* <Toaster position="top-right" /> */}
+              <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+            </DataProvider>
           </CountryProvider>
         </SessionProvider>
       </body>

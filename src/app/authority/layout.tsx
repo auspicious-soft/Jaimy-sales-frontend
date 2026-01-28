@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import "../globals.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 export default async function RootLayout({
   children,
@@ -9,11 +10,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
     const session = await auth();
+    if(!session?.user) return redirect('/');
   return (
     <div>
-      <div className="h-screen bg-gradient-to-br from-black via-[#111] to-black text-white">
+      <div className="min-h-screen bg-gradient-to-br from-black via-[#111] to-black text-white">
         <Header />
-        <main className="p-6 w-full">
+        <main className="p-6 w-full h-full">
           {children}
         </main>
       </div>

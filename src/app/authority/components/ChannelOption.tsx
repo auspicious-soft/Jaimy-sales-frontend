@@ -8,13 +8,14 @@ export function ChannelOption({
   onChange: () => void;
 }) {
   return (
-    <label className="flex items-center justify-between py-2 cursor-pointer">
+    <label className="flex items-center justify-between py-2 ">
       <span className="text-sm">{label}</span>
       <input
         type="checkbox"
         checked={checked}
         onChange={onChange}
-        className="accent-pink-500 h-4 w-4"
+        disabled
+        className=" accent-pink-500 h-4 w-4  disabled:opacity-100"
       />
     </label>
   );

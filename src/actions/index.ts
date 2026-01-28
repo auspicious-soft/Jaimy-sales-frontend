@@ -16,13 +16,13 @@ export const loginAction = async (payload: any) => {
     console.log('user: ', user);
     if (res && res?.data?.success) {
       await signIn("credentials", {
-        fullName:  res?.data?.data?.fullName,
-        email: res?.data?.data?.email,
-        _id: res?.data?.data?._id,
-        role: res?.data?.data?.role,
-        image: res?.data?.data?.image,
-        country: res?.data?.data?.country,
-        language: res?.data?.data?.language,
+        fullName:  user?.user?.fullName,
+        email: user?.user?.email,
+        _id: user?.user?._id,
+        role: user?.user?.role,
+        image: user?.user?.image,
+        country: user?.user?.country,
+        language: user?.user?.language,
         redirect: false,
       });
     }
